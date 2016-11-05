@@ -56,4 +56,6 @@ $app->get('/play/{nodeId}', function (Request $request, $nodeId) use ($app) {
 	return $app['twig']->render('choice.twig', array("tree" => $node, "user" => $user));
 })->value('nodeId', 0);
 
+
+
 $app->run();

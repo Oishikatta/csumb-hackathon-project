@@ -1,3 +1,4 @@
+<?php
 $nodeProperties = array(
 		"id"		=> 1000,
 		"name"		=> "Military",
