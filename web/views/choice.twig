@@ -1,0 +1,11 @@
+{% include "header.twig" %}
+<h3>Make a choice</h3>
+{% include "nodes/" ~ tree.template %}
+{% if tree.children is defined %}
+{% for node in tree.children %}
+	<a class="btn btn-primary" href="/play/{{ node.id }}">{{ node.name }}</a>
+{% endfor %}
+{% else %}
+<h3>You've reached the end of the game.</h3>
+{% endif %}
+{% include "footer.twig" %}
