@@ -11,10 +11,14 @@ class User {
 
 	var $money;
 
+	private $nodeId;
+
 	function User ($properties) {
 		foreach ($properties as $key => $value) {
 			$this->$key = $value;
 		}
+
+		$this->nodeId = 0;
 	}
 
 	function getArray() {
@@ -29,13 +33,17 @@ class User {
 			"money"		=> $this->money
 		);
 	}
+
+	function setNodeId($nodeId) {
+		$this->nodeId = $nodeId;
+	}
 }
 
 class Node {
-	public var $id;
-	public var $name;
-	public var $template;
-	public var $children = array();
+	public $id;
+	public $name;
+	public $template;
+	public $children = array();
 
 	public function Node($properties) {
 		foreach($properties as $key => $value) {
@@ -59,16 +67,19 @@ class Node {
 	}
 }
 
-function buildTree() {
+function buildNodeTree() {
+	$nodes = array();
 
 	// First node has two children -- Get Job or Go to College
-	var $nodeProperties = array(
-		"id" => 0,
-		"name" => "Job or College",
-		"template" => "job_or_college.twig"
+	$nodeProperties = array(
+		"id"		=> 0,
+		"name"		=> "Job or College",
+		"template"	=> "job_or_college.twig"
 	);
 
-	var $startNode = new Node($nodeProperties);
+	array_push($nodes, new Node($nodeProperties));
+
+	$rootNode = $nodes[0];
 
 	$nodeProperties = array(
 		"id"		=> 1,
@@ -76,7 +87,18 @@ function buildTree() {
 		"template"	=> "choose_job.twig"
 	);
 
-	$startNode->addChild($nodeProperties);
+	array_push($nodes, new Node($nodeProperties));
 
+	$rootNode->addChild($nodes[1]);
+
+	$nodeProperties = array(
+		"id"		=> 2,
+		"name"		=> "Go to College",
+		"template"	=> "go_to_college.twig"
+	);
+
+	array_push($nodes, new Node($nodeProperties));
+
+	$rootNode->addChild($nodes[2]);
 }
 
