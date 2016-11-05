@@ -46,15 +46,14 @@ $app->post('/start', function (Request $request) use ($app) {
 
 });
 
-$app->get('/play', function (Request $request) use ($app) {
+$app->get('/play/{nodeId}', function (Request $request, $nodeId) use ($app) {
 	$nodeTree = buildNodeTree();
 
 	$user = unserialize($app['session']->get("user"));
 
-	$node = findNode($user->getNodeId(), $nodeTree);
-
-	//die( var_dump($node) );
+	$node = findNode($nodeId, $nodeTree);
+//die(var_dump($node));
 	return $app['twig']->render('choice.twig', array("tree" => $node, "user" => $user));
-});
+})->value('nodeId', 0);
 
 $app->run();

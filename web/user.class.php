@@ -76,9 +76,12 @@ function findNode($nodeId, $nodeTree) {
 		return $nodeTree;
 	}
 
-	foreach ( $nodeTree->children as $node ) {
-		return findNode($nodeId, $node);
-	}
+	$returnTree = null;
+
+	for ( $i = 0; $returnTree == null && $i < count($nodeTree->children); $i++ )
+		$returnTree = findNode($nodeId, $nodeTree->children[$i]);
+
+	return $returnTree;
 }
 
 function buildNodeTree() {
