@@ -37,6 +37,10 @@ class User {
 	function setNodeId($nodeId) {
 		$this->nodeId = $nodeId;
 	}
+
+	function getNodeId() {
+		return $this->nodeId;
+	}
 }
 
 class Node {
@@ -47,23 +51,33 @@ class Node {
 
 	public function Node($properties) {
 		foreach($properties as $key => $value) {
-			$this->key = $value;
+			$this->$key = $value;
 		}
 	}
 
 	public function setId($id) {
 		$this->id = $id;
-		return this;
+		return $this;
 	}
 
 	public function setTemplate($template) {
 		$this->template = $template;
-		return this;
+		return $this;
 	}
 
 	public function addChild($childNode) {
 		array_push($this->children, $childNode);
-		return this;
+		return $this;
+	}
+}
+
+function findNode($nodeId, $nodeTree) {
+	if ( $nodeTree->id == $nodeId ) {
+		return $nodeTree;
+	}
+
+	foreach ( $nodeTree->children as $node ) {
+		return findNode($nodeId, $node);
 	}
 }
 
@@ -100,5 +114,7 @@ function buildNodeTree() {
 	array_push($nodes, new Node($nodeProperties));
 
 	$rootNode->addChild($nodes[2]);
+
+	return $rootNode;
 }
 
