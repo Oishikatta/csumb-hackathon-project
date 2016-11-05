@@ -118,6 +118,9 @@ function buildNodeTree() {
 
 	$rootNode->addChild($nodes[2]);
 
+	include("nodes_job.php");
+	//include("nodes_college.php");
+
 	return $rootNode;
 }
 
