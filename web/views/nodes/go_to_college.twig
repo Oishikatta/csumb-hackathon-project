@@ -1,3 +1,5 @@
+<div class="row">
+<div class="col-xs-12 col-md-8">
 <pre>
 Information about applying to college
 
@@ -7,3 +9,13 @@ Financial aid
 
 Student loans
 </pre>
+</div>
+<div class="col-xs-12 col-md-4">
+	<img src="/images/college.jpg" id="collegeImg" style="max-width: 100%;">
+</div>
+</div>
+<script>
+$(document).ready(function (){
+	$("#collegeImg").css("max-height", $("#pre").height());
+});
+</script>

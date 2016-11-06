@@ -2,7 +2,6 @@
 <div class="row">
 <div class="col-md-12" style="margin-bottom: 10px;">
 <h3>Make a choice</h3>
-{{ user.name }}
 {% include "nodes/" ~ tree.template %}
 {% if tree.children is defined %}
 {% for node in tree.children %}
