@@ -157,6 +157,33 @@ function buildJobLifeTree() {
 	);
 
 	$jobLifeTree = new Node($nodeProperties);
+	
+	$nodeProperties = array(
+		"id"		=> 1,
+		"name"		=> "Live at Home",
+		"template"	=> "choose_Home.twig"
+	);
+
+	$homeNode = new Node($nodeProperties);
+	$JobLifeTree->addChild($homeNode);
+	
+	$nodeProperties = array(
+		"id"		=> 2,
+		"name"		=> "Rent an Apartment",
+		"template"	=> "choose_Apartment.twig"
+	);
+
+	$apartmentNode = new Node($nodeProperties);
+	$JobLifeTree->addChild($homeNode);
+	
+	$nodeProperties = array(
+		"id"		=> 3,
+		"name"		=> "Rent a Room",
+		"template"	=> "choose_Room.twig"
+	);
+
+	$RoomNode = new Node($nodeProperties);
+	$JobLifeTree->addChild($Node);	
 
 	return $jobLifeTree;
 }
