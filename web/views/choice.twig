@@ -1,16 +1,22 @@
 {% include "header.twig" %}
+<div class="row">
+<div class="col-md-12" style="margin-bottom: 10px;">
 <h3>Make a choice</h3>
 {% include "nodes/" ~ tree.template %}
 {% if tree.children is defined %}
 {% for node in tree.children %}
-	<a class="btn btn-primary" href="/play/{{ node.id }}">{{ node.name }}</a>
+	<a class="btn btn-primary" href="/play/{{ user.getTreeId }}/{{ node.id }}">{{ node.name }}</a>
 {% endfor %}
 {% else %}
 <h3>You've reached the end of the game.</h3>
 {% endif %}
+</div>
+</div>
 {% if tree.id is not same as(0) %}
 <div class="row">
-<a class="btn btn-default" id="back">Go Back</a>
+<div class="col-md-12">
+<p><a class="btn btn-default" id="back">Go Back</a></p>
+</div>
 </div>
 <script>
 $("a#back").click(function(){

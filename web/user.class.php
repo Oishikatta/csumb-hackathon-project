@@ -12,6 +12,7 @@ class User {
 	var $money;
 
 	private $nodeId;
+	private $treeId;
 
 	function User ($properties) {
 		foreach ($properties as $key => $value) {
@@ -19,6 +20,7 @@ class User {
 		}
 
 		$this->nodeId = 0;
+		$this->treeId = 0;
 	}
 
 	function getArray() {
@@ -40,6 +42,14 @@ class User {
 
 	function getNodeId() {
 		return $this->nodeId;
+	}
+
+	function setTreeId($treeId) {
+		$this->treeId = $treeId;
+	}
+
+	function getTreeId() {
+		return $this->treeId;
 	}
 }
 
@@ -84,7 +94,29 @@ function findNode($nodeId, $nodeTree) {
 	return $returnTree;
 }
 
-function buildNodeTree() {
+function buildNodeTree($treeId) {
+	switch ($treeId) {
+		case CHECKING_TREE_ID:
+			return buildCheckingTree();
+
+		default:
+			return buildRootTree();
+	}
+}
+
+function buildCheckingTree() {
+	$nodeProperties = array(
+		"id"		=> 0,
+		"name"		=> "Checking account",
+		"template"	=> "choose_Checking.twig"
+	);
+
+	$checkingTree = new Node($nodeProperties);
+
+	return $checkingTree;
+}
+
+function buildRootTree() {
 	$nodes = array();
 
 	// First node has two children -- Get Job or Go to College

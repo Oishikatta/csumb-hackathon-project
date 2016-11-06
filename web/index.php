@@ -2,6 +2,9 @@
 require_once __DIR__.'/../vendor/autoload.php';
 require_once __DIR__.'/user.class.php';
 require_once __DIR__.'/usergenerator.class.php';
+define("ROOT_NODE_ID", 0);
+define("ROOT_TREE_ID", 0);
+define("CHECKING_TREE_ID", 1);
 
 error_reporting(E_ALL);
 
@@ -46,16 +49,16 @@ $app->post('/start', function (Request $request) use ($app) {
 
 });
 
-$app->get('/play/{nodeId}', function (Request $request, $nodeId) use ($app) {
-	$nodeTree = buildNodeTree();
-
+$app->get('/play/{treeId}/{nodeId}', function (Request $request, $treeId, $nodeId) use ($app) {
 	$user = unserialize($app['session']->get("user"));
+
+	$user->setTreeId($treeId);
+
+	$nodeTree = buildNodeTree($user->getTreeId());
 
 	$node = findNode($nodeId, $nodeTree);
 //die(var_dump($node));
 	return $app['twig']->render('choice.twig', array("tree" => $node, "user" => $user));
-})->value('nodeId', 0);
-
-
+})->value('nodeId', ROOT_NODE_ID)->value('treeId', ROOT_TREE_ID);
 
 $app->run();
