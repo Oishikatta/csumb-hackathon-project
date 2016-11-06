@@ -221,6 +221,11 @@ $nodeProperties = array(
 	$IllinoisNode = $nodes[count($nodes)-1];
 	$universityNode->addChild($nodes[count($nodes)-1]);
 	
+# Job life 
+
+
+
+
 	
 	
 
