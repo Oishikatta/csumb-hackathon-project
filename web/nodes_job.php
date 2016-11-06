@@ -6,8 +6,8 @@ $nodeProperties = array(
 	);
 
 	array_push($nodes, new Node($nodeProperties));
-
-	$nodes[1]->addChild($nodes[count($nodes)-1]);
+	$militaryNode = $nodes[count($nodes)-1];
+	$jobNode->addChild($nodes[count($nodes)-1]);
 
 $nodeProperties = array(
 		"id"		=> 1001,
@@ -16,8 +16,8 @@ $nodeProperties = array(
 	);
 
 	array_push($nodes, new Node($nodeProperties));
-
-	$nodes[1]->addChild($nodes[count($nodes)-1]);
+	$constructionNode = $nodes[count($nodes)-1];
+	$jobNode->addChild($nodes[count($nodes)-1]);
 
 $nodeProperties = array(
 		"id"		=> 1002,
@@ -26,8 +26,8 @@ $nodeProperties = array(
 	);
 
 	array_push($nodes, new Node($nodeProperties));
-
-	$nodes[1]->addChild($nodes[count($nodes)-1]);
+	$mcdonaldsNode = $nodes[count($nodes)-1];
+	$jobNode->addChild($nodes[count($nodes)-1]);
 
 $nodeProperties = array(
 		"id"		=> 1003,
@@ -36,6 +36,6 @@ $nodeProperties = array(
 	);
 
 	array_push($nodes, new Node($nodeProperties));
-
-	$nodes[1]->addChild($nodes[count($nodes)-1]);
+	$retailNode = $nodes[count($nodes)-1];
+	$jobNode->addChild($nodes[count($nodes)-1]);
 

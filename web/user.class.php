@@ -106,6 +106,8 @@ function buildNodeTree() {
 
 	array_push($nodes, new Node($nodeProperties));
 
+	$jobNode = $nodes[count($nodes)-1];
+
 	$rootNode->addChild($nodes[1]);
 
 	$nodeProperties = array(
@@ -115,7 +117,7 @@ function buildNodeTree() {
 	);
 
 	array_push($nodes, new Node($nodeProperties));
-
+	$collegeNode = $nodes[count($nodes)-1];
 	$rootNode->addChild($nodes[2]);
 
 	include("nodes_job.php");
