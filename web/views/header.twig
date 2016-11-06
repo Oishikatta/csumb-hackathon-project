@@ -12,11 +12,20 @@
 	body {
 		background: #e6f6fb;
 	}
+	.header {
+		padding-left: 15px;
+		padding-right: 15px;
+		border-bottom: 1px solid #e5e5e5;
+	}
 	div.container {
 		background: rgba(255,255,255,0.9);
 		max-width: 700px;
-		margin-top: 15px;
-		border-radius: 15px;
+	}
+	@media screen and (min-width: 700px) {
+		div.container {
+			margin-top: 15px;
+			border-radius: 15px;
+		}
 	}
 	pre {
 		font-family: Arial, Verdana;
