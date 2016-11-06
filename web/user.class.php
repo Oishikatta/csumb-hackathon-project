@@ -99,6 +99,9 @@ function buildNodeTree($treeId) {
 		case CHECKING_TREE_ID:
 			return buildCheckingTree();
 
+		case STUDENT_LOAN_TREE_ID:
+			return buildStudentLoanTree();
+
 		default:
 			return buildRootTree();
 	}
@@ -114,6 +117,18 @@ function buildCheckingTree() {
 	$checkingTree = new Node($nodeProperties);
 
 	return $checkingTree;
+}
+
+function buildStudentLoanTree() {
+	$nodeProperties = array(
+		"id"		=> 20000,
+		"name"		=> "Student Loans",
+		"template"	=> "student_loans.twig"
+	);
+
+	$studentLoanTree = new Node($nodeProperties);
+
+	return $studentLoanTree;
 }
 
 function buildRootTree() {
