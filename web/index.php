@@ -5,6 +5,7 @@ require_once __DIR__.'/usergenerator.class.php';
 define("ROOT_NODE_ID", 0);
 define("ROOT_TREE_ID", 0);
 define("CHECKING_TREE_ID", 1);
+define("STUDENT_LOAN_TREE_ID", 2);
 
 error_reporting(E_ALL);
 
