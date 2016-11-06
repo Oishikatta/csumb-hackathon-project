@@ -234,7 +234,7 @@ function buildCollegeLifeTree() {
 		"template"	=> "choose_Campus1.twig"
 	);
 
-	$homeNode = new Node($nodeProperties);
+	$campusNode = new Node($nodeProperties);
 	$collegeLifeTree->addChild($campusNode);
 
 	return $collegeLifeTree;
