@@ -127,13 +127,14 @@ $nodeProperties = array(
         $nodeProperties = array(
             "id"		=> 5002,
             "name"		=> "Evergreen College",
-            "template"	=> "choose_Gavilan.twig"
+            "template"	=> "choose_Evergreen.twig"
         );
         
         array_push($nodes, new Node($nodeProperties));
         $EvergreenNode = $nodes[count($nodes)-1];
         $communityNode->addChild($nodes[count($nodes)-1]);	          
         	      
+# State Schools
 	
 $nodeProperties = array(
 		"id"		=> 3002,
@@ -145,6 +146,39 @@ $nodeProperties = array(
 	$stateNode = $nodes[count($nodes)-1];
 	$collegeNode->addChild($nodes[count($nodes)-1]);
 	
+#State school options
+
+		$nodeProperties = array(
+		"id"		=> 6000,
+		"name"		=> "Idaho State",
+		"template"	=> "choose_Idaho.twig"
+	);
+
+	array_push($nodes, new Node($nodeProperties));
+	$IdahoNode = $nodes[count($nodes)-1];
+	$stateNode->addChild($nodes[count($nodes)-1]);
+		
+	$nodeProperties = array(
+		"id"		=> 6001,
+		"name"		=> "Monterey State",
+		"template"	=> "choose_Monterey.twig"
+	);
+
+	array_push($nodes, new Node($nodeProperties));
+	$MontereyNode = $nodes[count($nodes)-1];
+	$stateNode->addChild($nodes[count($nodes)-1]);
+	
+	$nodeProperties = array(
+		"id"		=> 6002,
+		"name"		=> "Sacramento State",
+		"template"	=> "choose_Sacramento.twig"
+	);
+
+	array_push($nodes, new Node($nodeProperties));
+	$SacramentoNode = $nodes[count($nodes)-1];
+	$stateNode->addChild($nodes[count($nodes)-1]);
+
+#university	
 $nodeProperties = array(
 		"id"		=> 3003,
 		"name"		=> "University",
@@ -154,6 +188,40 @@ $nodeProperties = array(
 	array_push($nodes, new Node($nodeProperties));
 	$universityNode = $nodes[count($nodes)-1];
 	$collegeNode->addChild($nodes[count($nodes)-1]);
+	
+# university options
+
+		$nodeProperties = array(
+		"id"		=> 7000,
+		"name"		=> "Berkely University",
+		"template"	=> "choose_Berkley.twig"
+	);
+
+	array_push($nodes, new Node($nodeProperties));
+	$BerkelyNode = $nodes[count($nodes)-1];
+	$universityNode->addChild($nodes[count($nodes)-1]);
+	
+	$nodeProperties = array(
+		"id"		=> 7001,
+		"name"		=> "Santa Cruz University",
+		"template"	=> "choose_SantaCruz.twig"
+	);
+
+	array_push($nodes, new Node($nodeProperties));
+	$SantaCruzNode = $nodes[count($nodes)-1];
+	$universityNode->addChild($nodes[count($nodes)-1]);
+	
+	$nodeProperties = array(
+		"id"		=> 7002,
+		"name"		=> "Illinois University",
+		"template"	=> "choose_Illinois.twig"
+	);
+
+	array_push($nodes, new Node($nodeProperties));
+	$IllinoisNode = $nodes[count($nodes)-1];
+	$universityNode->addChild($nodes[count($nodes)-1]);
+	
+	
 	
 
 	
