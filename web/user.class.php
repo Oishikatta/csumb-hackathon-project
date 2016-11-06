@@ -14,6 +14,8 @@ class User {
 	private $nodeId;
 	private $treeId;
 
+	var $job_or_college;
+
 	function User ($properties) {
 		foreach ($properties as $key => $value) {
 			$this->$key = $value;
@@ -21,6 +23,8 @@ class User {
 
 		$this->nodeId = 0;
 		$this->treeId = 0;
+
+		$this->job_or_college = "Unknown";
 	}
 
 	function getArray() {

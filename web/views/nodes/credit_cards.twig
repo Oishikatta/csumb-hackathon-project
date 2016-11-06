@@ -9,3 +9,8 @@ late payment = interest from date of purchase on full balance, late fee
 
 not paid in full = ""
 </pre>
+{% if user.job_or_college is same as("Job") %}
+	<a href="/play/3/0" class="btn btn-primary">Job Life Events</a>
+{% else %}
+	<a href="/play/4/0" class="btn btn-primary">College Life Events</a>
+{% endif %}
