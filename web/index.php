@@ -59,7 +59,7 @@ $app->get('/play/{treeId}/{nodeId}', function (Request $request, $treeId, $nodeI
 	$user = unserialize($app['session']->get("user"));
 
 	$user->setTreeId($treeId);
-
+//die(var_dump($treeId));
 	$nodeTree = buildNodeTree($user->getTreeId());
 
 	$node = findNode($nodeId, $nodeTree);

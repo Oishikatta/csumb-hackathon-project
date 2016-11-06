@@ -12,7 +12,8 @@
 {% endif %}
 </div>
 </div>
-{% if tree.id is not same as(0) and user.getTreeId is not same as(0) %}
+{% if user.getTreeId is not same as(0) %}
+{% if tree.name is not same as("Job or College") %}
 <div class="row">
 <div class="col-md-12">
 <p><a class="btn btn-default" id="back">Go Back</a></p>
@@ -24,5 +25,6 @@ $("a#back").click(function(){
 	return false;
 });
 </script>
+{% endif %}
 {% endif %}
 {% include "footer.twig" %}
