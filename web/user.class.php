@@ -187,7 +187,7 @@ function buildJobLifeTree() {
 	);
 
 	$RoomNode = new Node($nodeProperties);
-	$jobLifeTree->addChild($Node);	
+	$jobLifeTree->addChild($RoomNode);	
 
 	return $jobLifeTree;
 }
@@ -200,6 +200,42 @@ function buildCollegeLifeTree() {
 	);
 
 	$collegeLifeTree = new Node($nodeProperties);
+	
+	$nodeProperties = array(
+		"id"		=> 1,
+		"name"		=> "Rent a Room",
+		"template"	=> "choose_Room1.twig"
+	);
+
+	$RoomNode = new Node($nodeProperties);
+	$buildCollegeLifeTree->addChild($RoomNode);	
+	
+		$nodeProperties = array(
+		"id"		=> 2,
+		"name"		=> "Rent an Apartment",
+		"template"	=> "choose_Apartment1.twig"
+	);
+
+	$apartmentNode = new Node($nodeProperties);
+	$collegeLifeTree->addChild($apartmentNode);
+	
+	$nodeProperties = array(
+		"id"		=> 3,
+		"name"		=> "Live at Home",
+		"template"	=> "choose_Home1.twig"
+	);
+
+	$homeNode = new Node($nodeProperties);
+	$collegeLifeTree->addChild($homeNode);
+	
+	$nodeProperties = array(
+		"id"		=> 1,
+		"name"		=> "Live on Campus",
+		"template"	=> "choose_Campus1.twig"
+	);
+
+	$homeNode = new Node($nodeProperties);
+	$collegeLifeTree->addChild($campusNode);
 
 	return $collegeLifeTree;
 }
