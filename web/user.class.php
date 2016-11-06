@@ -102,6 +102,15 @@ function buildNodeTree($treeId) {
 		case STUDENT_LOAN_TREE_ID:
 			return buildStudentLoanTree();
 
+		case JOB_LIFE:
+			return buildJobLifeTree();
+
+		case COLLEGE_LIFE:
+			return buildCollegeLifeTree();
+
+		case BILLS_TREE:
+			return buildBillsTree();
+
 		default:
 			return buildRootTree();
 	}
@@ -116,12 +125,21 @@ function buildCheckingTree() {
 
 	$checkingTree = new Node($nodeProperties);
 
+	$nodeProperties = array(
+		"id"		=> 1,
+		"name"		=> "Open a Credit Card",
+		"template"	=> "credit_cards.twig"
+	);
+
+	$creditCardsNode = new Node($nodeProperties);
+	$checkingTree->addChild($creditCardsNode);
+
 	return $checkingTree;
 }
 
 function buildStudentLoanTree() {
 	$nodeProperties = array(
-		"id"		=> 20000,
+		"id"		=> 0,
 		"name"		=> "Student Loans",
 		"template"	=> "student_loans.twig"
 	);
@@ -129,6 +147,34 @@ function buildStudentLoanTree() {
 	$studentLoanTree = new Node($nodeProperties);
 
 	return $studentLoanTree;
+}
+
+function buildJobLifeTree() {
+	$nodeProperties = array(
+		"id"		=> 0,
+		"name"		=> "Job Life",
+		"template"	=> "job_life.twig"
+	);
+
+	$jobLifeTree = new Node($nodeProperties);
+
+	return $jobLifeTree;
+}
+
+function buildCollegeLifeTree() {
+	$nodeProperties = array(
+		"id"		=> 0,
+		"name"		=> "College Life",
+		"template"	=> "college_life.twig"
+	);
+
+	$collegeLifeTree = new Node($nodeProperties);
+
+	return $collegeLifeTree;
+}
+
+function buildBillsTree() {
+
 }
 
 function buildRootTree() {
