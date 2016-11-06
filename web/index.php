@@ -6,6 +6,9 @@ define("ROOT_NODE_ID", 0);
 define("ROOT_TREE_ID", 0);
 define("CHECKING_TREE_ID", 1);
 define("STUDENT_LOAN_TREE_ID", 2);
+define("JOB_LIFE", 3);
+define("COLLEGE_LIFE", 4);
+define("BILLS_TREE", 5);
 
 error_reporting(E_ALL);
 
@@ -46,6 +49,8 @@ $app->post('/start', function (Request $request) use ($app) {
 		$user->$customVar = $request->get($customVar, $user->$customVar);
 	}
 
+	$app['session']->set("user", serialize($user));
+
 	return $app->redirect('/play');
 
 });
@@ -58,6 +63,15 @@ $app->get('/play/{treeId}/{nodeId}', function (Request $request, $treeId, $nodeI
 	$nodeTree = buildNodeTree($user->getTreeId());
 
 	$node = findNode($nodeId, $nodeTree);
+
+	if ( $node->name == "Get a Job" ) {
+		$user->job_or_college = "Job";
+	} else if ( $node->name == "Go to College" ) {
+		$user->job_or_college = "College";
+	}
+
+	$app['session']->set("user", serialize($user));
+
 //die(var_dump($node));
 	return $app['twig']->render('choice.twig', array("tree" => $node, "user" => $user));
 })->value('nodeId', ROOT_NODE_ID)->value('treeId', ROOT_TREE_ID);
