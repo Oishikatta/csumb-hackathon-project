@@ -1,11 +1,11 @@
 {% include "header.twig" %}
 <h3>Your Character</h3>
 <h4>(Use this randomly generated character or choose your own)</h4>
-<form action="/start" method="post">
+<form action="/start" method="post" id="userForm">
 <fieldset id="inputFields">
 <div class="form-group">
 	<label for="name">Character Name</label>
-	<input id="name" name="name" type="text" value="{{ user.name }}" class="form-control">
+	<input id="name" name="name" type="text" placeholder="{{ user.name }}" class="form-control">
 </div>
 <div class="form-group">
 	<label for="gender">Character Gender</label>
@@ -34,8 +34,16 @@
 -->
 </fieldset>
 <button id="startButton" class="btn btn-primary">Start Game</button>
-<button id="customizeButton" class="btn btn-info">Customize Character</button>
+<!--<button id="customizeButton" class="btn btn-info">Customize Character</button>-->
 </form>
+<script>
+$("#userForm").submit(function (e) {
+	if ( $("input#name").val() == "" ) {
+		$("input#name").val( $("input#name").prop("placeholder") );
+	}
+});
+</script>
+{% if 1 is same as(0) %}
 <script>
 $("fieldset#inputFields :input").prop("disabled", true);
 
@@ -44,4 +52,5 @@ $("button#customizeButton").click(function () {
 	return false;
 });
 </script>
+{% endif %}
 {% include "footer.twig" %}
