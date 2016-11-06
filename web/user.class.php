@@ -169,7 +169,7 @@ function buildJobLifeTree() {
 	);
 
 	$homeNode = new Node($nodeProperties);
-	$JobLifeTree->addChild($homeNode);
+	$jobLifeTree->addChild($homeNode);
 	
 	$nodeProperties = array(
 		"id"		=> 2,
@@ -178,7 +178,7 @@ function buildJobLifeTree() {
 	);
 
 	$apartmentNode = new Node($nodeProperties);
-	$JobLifeTree->addChild($homeNode);
+	$jobLifeTree->addChild($homeNode);
 	
 	$nodeProperties = array(
 		"id"		=> 3,
@@ -187,7 +187,7 @@ function buildJobLifeTree() {
 	);
 
 	$RoomNode = new Node($nodeProperties);
-	$JobLifeTree->addChild($Node);	
+	$jobLifeTree->addChild($Node);	
 
 	return $jobLifeTree;
 }
